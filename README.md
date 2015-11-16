@@ -88,6 +88,7 @@ False
 --username USERNAME, -u   USERNAME Username. (Default: vagrant)
 --key KEY, -k KEY         Keyfile for PKI authentication. 
                           (Default: vagrant/vagrant.key)
+ --worker, -w             Start as RabbitMQ worker.
 --threads THREADS         Number of threads to start. (Default: None)
 --rabbitmq [RABBITMQ]     Send to RabbitMQ URL. 
                           (Default: ampq://guest:guest@localhost:5672/)
@@ -120,9 +121,14 @@ hostname or IPv4/6 address as its key and consisting of various values defining 
 
 
 ### Scaling
-By default, the program runs single-threaded. To use multiple threads, use the --threads *n* option.
-`conf_time.py` also supports sending jobs to a RabbitMQ server. `worker.py` is a very simple example
-of a consumer. 
+`conf_time.py` supports two ways of scaling. With multi-threading the script can take
+advantage of more than one core. The rabbitmq options, lets you distribute work to other hosts.
+
+By default, neither of these options are enabled and the program runs single-threaded. 
+To enable multi-threading, use the --threads *n* argument.
+
+To start a RabbitMQ publisher, use the --rabbitmq argument with the ampq url or blank for default.
+To stat a worker, use --rabbitmq with the -w argument.
 
 
 # Tests
