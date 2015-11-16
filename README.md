@@ -55,7 +55,7 @@ vsrx-01
 True
 ```
 
-Device object is idempotent.
+`update()` is idempotent.
 
 ```
 >>> from device import Junos
