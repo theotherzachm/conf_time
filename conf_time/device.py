@@ -1,4 +1,5 @@
 from copy import copy
+import os
 from jinja2 import Environment, FileSystemLoader
 from ncclient import manager
 from ncclient.xml_ import new_ele
@@ -129,7 +130,9 @@ class Junos(object):
         '''
         if not attr:
             raise TypeError('Attr is required.')
-        env = Environment(loader=FileSystemLoader(['templates']))
+        env = Environment(loader=FileSystemLoader(
+            [os.path.join(os.path.dirname(__file__), 'templates')]
+        ))
         template = "{}.j2".format(attr)
         return env.get_template(template).render({'values': values})
 

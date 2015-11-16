@@ -6,7 +6,7 @@ import json
 import cPickle as pickle
 import sys
 import yaml
-from device import detect, Junos
+from conf_time.device import detect, Junos
 
 
 def arguments():
@@ -72,11 +72,10 @@ def arguments():
 
 def do_stuff(host=None, in_device=None, args=None):
     '''
-    Takes tuple of each item from input and instantiates a
-    network device object. Then it sets the network device
-    object's attributes with data from the input and runs
-    update method. It also pretty-prints the network object's
-    properties to JSON before editing/commit.
+    Instantiates a network device object. Then it sets the
+    network device object's attributes with data from the input
+    and runs update method. It also pretty-prints the network
+    object's properties to JSON before editing/commit.
     '''
 
     if not host and in_device and args:

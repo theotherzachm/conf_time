@@ -1,7 +1,7 @@
 import unittest
 from ncclient.xml_ import NCElement
 from ncclient import manager
-from device import Junos
+from conf_time.device import Junos
 
 
 class TestData(object):
