@@ -1,0 +1,5 @@
+paramiko==1.15.2
+ncclient==0.4.3
+PyYAML==3.10
+Jinja2==2.7.2
+pika==0.10.0

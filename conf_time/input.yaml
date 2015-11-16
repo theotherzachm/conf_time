@@ -1,0 +1,33 @@
+192.168.56.2:
+  hostname: vsrx-01
+  ntp_servers:
+    - 10.0.2.2
+    - 10.0.2.1
+  snmp_communities:
+    - private
+    - public
+192.168.56.3:
+  hostname: vsrx-02
+  ntp_servers:
+    - 10.0.2.2
+    - 10.0.2.1
+  snmp_communities:
+    - private
+    - public
+192.168.56.4:
+  hostname: vsrx-03
+  ntp_servers:
+    - 10.0.2.2
+    - 10.0.2.1
+  snmp_communities:
+    - private
+    - public
+# IPv6 Example
+# "fe80::800:27ff:fe00:2%vboxnet0":
+#   hostname: vsrx01
+#   ntp_servers:
+#     - 10.0.2.2
+#     - 10.0.2.1
+#   snmp_communities:
+#     - private
+#     - public

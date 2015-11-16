@@ -1,0 +1,19 @@
+{%- set operation='replace' %}
+<config>
+    <configuration>
+        <system>
+            {%- if not values %}
+            {%- set operation='delete' %}
+            {%- endif %}
+            <ntp operation="{{operation}}">
+                {%- if values %}
+                {%- for i in values %}
+                <server>
+                    <name>{{i}}</name>
+                </server>
+                {%- endfor %}
+                {%- endif %}
+            </ntp>
+        </system>
+    </configuration>
+</config>

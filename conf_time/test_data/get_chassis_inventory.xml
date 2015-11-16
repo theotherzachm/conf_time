@@ -1,0 +1,30 @@
+<rpc-reply message-id="urn:uuid:bd32710a-87f8-11e5-b56c-00249b118453">
+  <chassis-inventory>
+    <chassis style="inventory">
+      <name>Chassis</name>
+      <serial-number>98f086798881</serial-number>
+      <description>FIREFLY-PERIMETER</description>
+      <chassis-module>
+        <name>Midplane</name>
+      </chassis-module>
+      <chassis-module>
+        <name>System IO</name>
+      </chassis-module>
+      <chassis-module>
+        <name>Routing Engine</name>
+        <description>FIREFLY-PERIMETER RE</description>
+      </chassis-module>
+      <chassis-module>
+        <name>FPC 0</name>
+        <description>Virtual FPC</description>
+        <chassis-sub-module>
+          <name>PIC 0</name>
+          <description>Virtual VTNET GE</description>
+        </chassis-sub-module>
+      </chassis-module>
+      <chassis-module>
+        <name>Power Supply 0</name>
+      </chassis-module>
+    </chassis>
+  </chassis-inventory>
+</rpc-reply>

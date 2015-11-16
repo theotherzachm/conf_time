@@ -1,0 +1,17 @@
+{%- set operation='replace' %}
+<config>
+    <configuration>
+            {%- if not values %}
+            {%- set operation='delete' %}
+            {%- endif %}
+            <snmp operation="{{operation}}">
+                {%- if values %}
+                {%- for i in values %}
+                <community>
+                    <name>{{i}}</name>
+                </community>
+                {%- endfor %}
+                {%- endif %}
+            </snmp>
+    </configuration>
+</config>

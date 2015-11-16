@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure(2) do |config|
+    config.vm.define "vsrx01" do |vsrx01|
+        vsrx01.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+        vsrx01.vm.network "private_network",
+                          ip: "192.168.56.2"
+        vsrx01.vm.provider :virtualbox do |vb|
+            vb.customize ["modifyvm", :id, "--nicpromisc2", "deny"]
+        end
+    end
+    config.vm.define "vsrx02" do |vsrx02|
+        vsrx02.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+        vsrx02.vm.network "private_network",
+                          ip: "192.168.56.3"
+        vsrx02.vm.provider :virtualbox do |vb|
+            vb.customize ["modifyvm", :id, "--nicpromisc2", "deny"]
+        end
+    end
+    config.vm.define "vsrx03" do |vsrx03|
+        vsrx03.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+        vsrx03.vm.network "private_network",
+                          ip: "192.168.56.4"
+        vsrx03.vm.provider :virtualbox do |vb|
+            vb.customize ["modifyvm", :id, "--nicpromisc2", "deny"]
+        end
+    end
+end
