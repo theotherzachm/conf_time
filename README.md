@@ -122,13 +122,12 @@ hostname or IPv4/6 address as its key and consisting of various values defining 
 
 ### Scaling
 `conf_time.py` supports two ways of scaling. With multi-threading the script can take
-advantage of more than one core. The rabbitmq options, lets you distribute work to other hosts.
+advantage of more than one core. With Rabbitmq you can distribute work to other hosts.
 
 By default, neither of these options are enabled and the program runs single-threaded. 
-To enable multi-threading, use the --threads *n* argument.
-
-To start a RabbitMQ publisher, use the --rabbitmq argument with the ampq url or blank for default.
-To stat a worker, use --rabbitmq with the -w argument.
+To enable multi-threading, use the --threads *n* argument. To start a RabbitMQ publisher, use the
+--rabbitmq argument with the ampq url or blank for default. To start a worker, use --rabbitmq 
+with the -w argument.
 
 
 # Tests
