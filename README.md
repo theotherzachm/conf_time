@@ -24,7 +24,7 @@ In addition to the immutable attributes, the following mutable one are also avai
 * object.snmp_communities
 * object.hostname
 
-Any mutable attribute can be redefined and written to the network device `update()` method. 
+Any mutable attribute can be redefined and written to the network device with the `update()` method. 
 
 
 ## Using the Module
@@ -78,7 +78,7 @@ False
 
 
 ## Using the Script
-`conf_time.py` takes the following optional arguments:
+`conf_time.py` takes the following arguments:
 ```
 -h, --help                show this help message and exit
 --input INPUT, -i         INPUT YAML input file. (Default: input.yaml)
