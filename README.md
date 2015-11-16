@@ -129,4 +129,5 @@ of a consumer.
 Unit tests in `tests.py` cover possible use cases of the library and run against static test data in 
 the test_data directory. Tests do not cover the script as it's intended for use with live devices. 
 However, a Vagrantfile is included that will start an environment the default `input.yaml` can run against.
-Just issue a `vagrant up` in the root directory to begin three vSRX instances connected to vboxnet0 with IPs of 192.168.56.2-4.
+Assuming you're using the Virtualbox provider, just issue a `vagrant up` in the root directory to begin three 
+vSRX instances connected to vboxnet0 with IPs of 192.168.56.2-4.
