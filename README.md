@@ -27,7 +27,7 @@ In addition to the immutable attributes, the following mutable one are also avai
 Any mutable attribute can be redefined and written to the network device `update()` method. 
 
 
-## Using the Library
+## Using the Module
 Using Junos device object
 
 ```
@@ -126,7 +126,7 @@ of a consumer.
 
 
 # Tests
-Unit tests in `tests.py` cover possible use cases of the library and run against static test data in 
+Unit tests in `tests.py` cover possible use cases of the module and run against static test data in 
 the test_data directory. Tests do not cover the script as it's intended for use with live devices. 
 However, a Vagrantfile is included that will start an environment the default `input.yaml` can run against.
 Assuming you're using the Virtualbox provider, just issue a `vagrant up` in the root directory to begin three 
