@@ -55,6 +55,12 @@ def arguments():
         default='vagrant/vagrant.key',
         help='Keyfile for PKI authentication. (Default: vagrant/vagrant.key)'
     )
+    parser.add_argument(
+        '--worker',
+        '-w',
+        action='store_true',
+        help='Start as RabbitMQ worker.'
+    )
     scale = parser.add_mutually_exclusive_group()
     scale.add_argument(
         '--threads',
@@ -128,7 +134,7 @@ if __name__ == '__main__':
     if args.threads:
         Pool(args.threads).map(ds_wrapper, devices.iteritems())
         sys.exit(0)
-    if args.rabbitmq:
+    if args.rabbitmq and not args.worker:
         import pika
         connection = pika.BlockingConnection(
             pika.URLParameters(args.rabbitmq)
@@ -144,6 +150,29 @@ if __name__ == '__main__':
             )
         connection.close()
         sys.exit(0)
+    if args.rabbitmq and args.worker:
+        import pika
+        connection = pika.BlockingConnection(
+            pika.URLParameters(args.rabbitmq)
+        )
+        channel = connection.channel()
+        channel.queue_declare(queue='netconf')
+        print(' [*] Waiting for messages. To exit press CTRL+C')
+
+        def run_do_stuff(ch, method, properties, body):
+            r_data = pickle.loads(body)
+            return do_stuff(
+                host=r_data[0][0],
+                in_device=r_data[0][1],
+                args=r_data[1]
+            )
+
+        channel.basic_consume(
+            run_do_stuff,
+            queue='netconf',
+            no_ack=True
+        )
+        channel.start_consuming()
     else:
         map(ds_wrapper, devices.items())
         sys.exit(0)
